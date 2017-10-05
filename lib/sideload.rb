@@ -3,6 +3,7 @@ require "sideload/validation_error"
 require "sideload/config"
 require "sideload/redis"
 require "sideload/path"
+require "sideload/github"
 
 module Sideload
   extend self
@@ -20,7 +21,7 @@ module Sideload
   def update!(sources)
     scope, arg, _config, validate = sources.shift
     mod = const_get(scope.to_s.capitalize)
-    contents = mod.read(arg)
+    contents = mod.read(*arg)
     unless sources.empty?
       next_layer = update!(sources)
       unless next_layer.nil?

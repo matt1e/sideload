@@ -16,6 +16,7 @@ sideloader = Sideload.init do |config|
   config.source(:path, "sources/")
   config.source(:redis, "sources/")
   config.source(:path, "sample_sources/")
+  config.source(:github, ["matthias-geier/sideload", "sample_sources"])
 end
 
 sideloader.update! { |file, content| p file, content }

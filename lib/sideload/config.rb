@@ -1,7 +1,6 @@
-
 module Sideload
   class Config
-    ALLOWED = %i[path web redis]
+    ALLOWED = %i[path github redis]
 
     attr_reader :sources, :packer, :unpacker
 
