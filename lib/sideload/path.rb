@@ -27,7 +27,7 @@ module Sideload
 
     def write(full_path, target, content)
       if block_given? && !yield(content)
-        raise ValidationError.new(self, "#{full_path}#{target}", content)
+        raise ValidationError.new(self, "#{full_path}/#{target}", content)
       end
       File.open(File.join(full_path, target), "w") { |f| f.print content }
     end

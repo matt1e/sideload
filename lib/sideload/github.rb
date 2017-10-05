@@ -31,6 +31,10 @@ module Sideload
 
     private
 
+    def cred!
+      raise RuntimeError.new("no github credentials set") if @user.nil?
+    end
+
     def traverse(repo, sha, path = [])
       return get_tree(repo, sha).reduce({}) do |acc, node|
         name = node["path"]
@@ -46,6 +50,7 @@ module Sideload
 
     def navigate_to(repo, path)
       return path.split("/").reduce("master") do |acc, folder|
+        next acc if folder.empty?
         get_tree(repo, acc)&.detect { |e| e["type"] && e["path"] == folder }&.
           []("sha")
       end
@@ -57,7 +62,7 @@ module Sideload
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = uri.scheme == "https"
       request = Net::HTTP::Get.new(uri.request_uri)
-      request.basic_auth(@user, @pass) if @user
+      request.basic_auth(@user, @pass)
       response = http.request(request)
       if response.is_a?(Net::HTTPOK)
         return Base64.decode64(JSON.parse(response.body)&.[]("content"))
@@ -73,7 +78,7 @@ module Sideload
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = uri.scheme == "https"
       request = Net::HTTP::Get.new(uri.request_uri)
-      request.basic_auth(@user, @pass) if @user
+      request.basic_auth(@user, @pass)
       response = http.request(request)
       if response.is_a?(Net::HTTPOK)
         return JSON.parse(response.body)&.[]("tree")

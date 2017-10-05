@@ -22,7 +22,7 @@ module Sideload
 
     def write(full_path, target, content)
       if block_given? && !yield(content)
-        raise ValidationError.new(self, "#{full_path}#{target}", content)
+        raise ValidationError.new(self, "#{full_path}/#{target}", content)
       end
       db.set(File.join(full_path, target), content)
     end
