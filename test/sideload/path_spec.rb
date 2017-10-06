@@ -1,7 +1,7 @@
 describe "Sideload::Path" do
   describe ".read" do
     it "reads files on a given path" do
-      assert_equal({"toot.json" => "{}\n"},
+      assert_equal({"toot.json" => "[]\n"},
         Sideload::Path.read("sample_sources/"))
     end
   end

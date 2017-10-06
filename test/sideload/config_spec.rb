@@ -38,10 +38,10 @@ describe "Sideload::Config" do
 
   describe "#source" do
     it "allows path, web and redis as scopes" do
-      %i[path web redis].each do |scope|
+      %i[path github redis].each do |scope|
         raised = false
         begin
-          @config.source(scope, "arg")
+          @config.source(scope, *["arg"])
         rescue
           raised = true
         end
