@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe "Sideload::Github" do
   after do
     Sideload::Github.instance_variable_set("@user", nil)

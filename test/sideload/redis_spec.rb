@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe "Sideload::Path" do
   after do
     db = Sideload::Redis.db

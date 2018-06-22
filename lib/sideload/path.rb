@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Sideload
   module Path
     extend self

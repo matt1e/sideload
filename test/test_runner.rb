@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "sideload"
 require "json"
 require "minitest/autorun"

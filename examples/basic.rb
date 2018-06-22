@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Navigate to project folder
 # execute:
 #   $ ruby -Ilib example/basic.rb

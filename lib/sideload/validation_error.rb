@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Sideload
   class ValidationError < RuntimeError
     def initialize(klass, path, content)

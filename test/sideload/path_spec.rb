@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe "Sideload::Path" do
   describe ".read" do
     it "reads files on a given path" do

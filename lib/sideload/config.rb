@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Sideload
   class Config
     ALLOWED = %i[path github redis]

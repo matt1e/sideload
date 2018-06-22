@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe "Sideload::Config" do
   before do
     @config = Sideload::Config.new

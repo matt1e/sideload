@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "redis"
 require "sideload/validation_error"
 require "sideload/config"
